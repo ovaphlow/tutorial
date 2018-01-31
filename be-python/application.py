@@ -10,8 +10,8 @@ engine = create_engine(
 
 @app.route('/api/user/login', methods=['POST'])
 def login():
-    # print(request.form['account'])
-    print(request.json['account'])
+    print(request.method, request.path)
+    print(request.json['account'], request.json['password'])
     return jsonify({
         'status': 200
     })

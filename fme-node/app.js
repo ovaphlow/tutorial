@@ -25,8 +25,8 @@ app.post('/api/user/login', (req, res) => {
     data: req.body,
     responseType: 'json'
   }).then((response) => {
-    console.log(response)
-    res.json(response)
+    console.log(response.data)
+    res.json(response.data)
   }).catch((error) => {
     console.log(error)
     res.json(error)

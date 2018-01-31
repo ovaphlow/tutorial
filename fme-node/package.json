@@ -1,0 +1,17 @@
+{
+  "name": "fme-node",
+  "version": "1.0.0",
+  "main": "app.js",
+  "author": "ovaphlow",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "body-parser": "^1.18.2",
+    "bootstrap": "3",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2",
+    "font-awesome": "^4.7.0",
+    "handlebars": "^4.0.11",
+    "jquery": "1"
+  }
+}

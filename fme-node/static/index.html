@@ -14,40 +14,62 @@
   </style>
 </head>
 <body>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-12 page-header">
-        <h1 class="text-center">
-          图书管理系统
-          <small><br/>Version 0.0.1</small>
-        </h1>
-        <h3 class="text-center">作者：XXX</h3>
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">图书管理</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="/">
+              首页
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li><a href="/save">添加书籍</a></li>
+          <li><a href="/search">查询</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+          <li><a href="/logout">退出登录</a></li>
+        </ul>
       </div>
     </div>
+  </nav>
 
+  <div class="container">
     <div class="row">
-      <div class="col-md-3 col-md-offset-9">
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            用户登录
-          </div>
-          <div class="panel-body">
-            <div class="control-group">
-              <label>账号</label>
-              <input id="account" class="form-control" type="text"/>
-            </div>
-            <br/>
-            <div class="control-group">
-              <label>密码</label>
-              <input id="password" class="form-control" type="password"/>
-            </div>
-            <br/>
-            <div class="control-group">
-              <button id="submit" class="btn btn-danger btn-block">
-                确认
-              </button>
-            </div>
-          </div>
+      <div class="col-md-12">
+        <h3>
+          图书管理系统
+          <hr/>
+        </h3>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="list-group">
+          <a href="#" class="list-group-item">
+            <h4>书名</h4>
+            <ul class="list-inline">
+              <li>作者：<span>YYY</span></li>
+              <li>出版社：<span>ZZZ</span></li>
+            </ul>
+          </a>
+          <a href="#" class="list-group-item">
+            Cras justo odio
+          </a>
+          <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
+          <a href="#" class="list-group-item">Morbi leo risus</a>
+          <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+          <a href="#" class="list-group-item">Vestibulum at eros</a>
         </div>
       </div>
     </div>
@@ -55,6 +77,15 @@
 
   <script src="/lib/jquery/dist/jquery.min.js"></script>
   <script src="/lib/bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <script>
+    $(function () {
+      var userId = localStorage.getItem('userId')
+      if (!userId) {
+        location.href = '/login.html'
+      }
+    })
+  </script>
 
   <script>
     $(function () {

@@ -8,7 +8,6 @@ const app = express()
 
 const proxy = 'http://127.0.0.1:8090'
 
-// let staticPath = path.join(path.normalize(__dirname + '/..'), 'webapp')
 app.use(express.static('static'))
 
 app.use('/lib', express.static(path.join(__dirname, 'node_modules')))
@@ -18,7 +17,6 @@ app.use(bodyParser.json())
 
 app.post('/api/user/login', (req, res) => {
   console.log(req.method, req.originalUrl)
-  console.log(req.body.account)
   axios({
     url: proxy + req.originalUrl,
     method: 'POST',

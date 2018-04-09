@@ -1,3 +1,5 @@
+target/
+
 *.exe
 
 __pycache__

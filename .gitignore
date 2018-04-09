@@ -1,4 +1,7 @@
+build/
 target/
+
+dist/
 
 *.exe
 

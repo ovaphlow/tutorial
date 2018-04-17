@@ -7,4 +7,5 @@ CREATE USER username IDENTIFIED BY 'password';
 GRANT ALL ON *.* TO 'username'@'%' WITH GRANT OPTION;
 
 my.cnf
+    bind-address=0.0.0.0
     listen 0.0.0.0

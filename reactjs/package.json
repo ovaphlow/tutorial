@@ -1,0 +1,21 @@
+{
+  "name": "reactjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "ovaphlow",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "babel-standalone": "^6.26.0",
+    "bootstrap": "^4.1.1",
+    "express": "^4.16.3",
+    "font-awesome": "^4.7.0",
+    "jquery": "^3.3.1",
+    "react": "^16.4.0",
+    "react-dom": "^16.4.0"
+  }
+}

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>数字化档案</title>
+  <link href="lib/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+  <!--[if lt IE 9]>
+  <script src="lib/html5shiv/dist/html5shiv.min.js"></script>
+  <script src="lib/respond.js/dest/respond.min.js"></script>
+  <![endif]-->
+
+  <script src="lib/jquery/dist/jquery.min.js"></script>
+  <script src="lib/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="lib/react/umd/react.development.js"></script>
+  <script src="lib/react-dom/umd/react-dom.development.js"></script>
+  <script src="lib/babel-standalone/babel.min.js"></script>
+</head>
+
+<body style="background-color: whitesmoke;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <h1 class="text-center" style="margin-top:1em;">
+          数字化档案
+          <small>
+            <br>哈尔滨市人力资源和社会保障局
+          </small>
+        </h1>
+        <hr>
+      </div>
+    </div>
+
+    <p>
+      <br>
+      <br>
+      <br>
+    </p>
+
+    <div class="row">
+      <div class="col-3 offset-9">
+        <div id="login"></div>
+      </div>
+    </div>
+  </div>
+
+  <script type="text/babel">
+    class Login extends React.Component {
+      constructor(props) {
+        super(props)
+
+        this.submit = this.submit.bind(this)
+      }
+
+      submit() {
+        console.log(1123)
+      }
+
+      render() {
+        return (
+          <div className="card">
+            <div className="card-body">
+              <h3 className="card-title text-center">
+                用户登录
+              </h3>
+
+              <div className="row">
+                <div className="form-group col-12">
+                  <label>账号</label>
+                  <input type="text" id="account" className="form-control"/>
+                </div>
+
+                <div className="form-group col-12">
+                  <label>密码</label>
+                  <input type="password" id="password" className="form-control"/>
+                </div>
+                <hr/>
+              </div>
+
+              <button id="submit" className="btn btn-primary btn-block" onClick={this.submit}>
+                <i className="fa fa-check"></i> 确定
+              </button>
+            </div>
+          </div>
+        )
+      }
+    }
+
+    ReactDOM.render(
+      <Login/>,
+      document.getElementById('login')
+    )
+  </script>
+
+</body>
+
+</html>

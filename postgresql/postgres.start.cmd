@@ -1,0 +1,1 @@
+.\bin\postgres.exe --config-file=postgresql.conf

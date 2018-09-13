@@ -1,0 +1,1 @@
+start .\bin\mysqld.exe --defaults-file=my.cnf

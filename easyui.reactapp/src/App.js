@@ -2,6 +2,7 @@ import React from 'react'
 import { Layout, LayoutPanel } from 'rc-easyui'
 
 import WestTree from './components/WestTree'
+import CenterPanel from './components/Panel'
 
 class App extends React.Component {
   constructor() {
@@ -39,6 +40,8 @@ class App extends React.Component {
 
           <LayoutPanel region="center" style={{ height: '100%' }}>
             <div style={titleStyle}>
+              使用Panel(Header and Footer)填充
+              <CenterPanel />
             </div>
           </LayoutPanel>
         </Layout>

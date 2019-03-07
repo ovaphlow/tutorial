@@ -16,15 +16,18 @@ class WestSideMenu extends React.Component {
           children: [
             {
               key: 101,
-              text: '首页'
+              text: '首页',
+              href: '#/'
             },
             {
               key: 102,
-              text: '主要功能1'
+              text: '主要功能1',
+              href: '#wsm'
             },
             {
               key: 103,
-              text: '主要功能2'
+              text: '主要功能2',
+              href: '#menu'
             },
           ]
         },
@@ -81,10 +84,18 @@ class WestSideMenu extends React.Component {
         <SideMenu style={{ width: '100%' }}
             data={this.state.menus}
             collapsed={false}
-            onSelectionChange={(selection) => this.setState({ selection: selection })}
+            // onSelectionChange={(selection) => this.setState({ selection: selection })}
+            onSelectionChange={this.handleSelectionChange.bind(this)}
         />
       </div>
     )
+  }
+
+  handleSelectionChange(selection) {
+    console.info(selection)
+    if (selection.href) {
+      window.location = selection.href
+    }
   }
 }
 

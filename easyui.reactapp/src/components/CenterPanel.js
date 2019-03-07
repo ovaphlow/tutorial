@@ -26,10 +26,9 @@ class CenterPanel extends React.Component {
   render() {
     return (
       <div>
-        <h2>#123321#</h2>
         <Panel
             title="Panel Title"
-            style={{ height: '300px' }}
+            style={{ height: '72vh' }}
             bodyStyle={{ padding: 20 }}
             header={this.header}
             footer={this.footer}
@@ -41,4 +40,4 @@ class CenterPanel extends React.Component {
   }
 }
 
-export default Panel
+export default CenterPanel

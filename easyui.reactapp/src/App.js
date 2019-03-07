@@ -2,7 +2,8 @@ import React from 'react'
 import { Layout, LayoutPanel } from 'rc-easyui'
 
 import WestTree from './components/WestTree'
-import CenterPanel from './components/Panel'
+import WestSideMenu from './components/WestSideMenu'
+import CenterPanel from './components/CenterPanel'
 
 class App extends React.Component {
   constructor() {
@@ -12,7 +13,7 @@ class App extends React.Component {
   render() {
     const titleStyle = {
       textAlign: 'center',
-      marginTop: '10px'
+      // marginTop: '10px'
     }
 
     return (
@@ -35,14 +36,12 @@ class App extends React.Component {
             {/* <div style={titleStyle}> */}
               {/* West Region */}
             {/* </div> */}
-            <WestTree />
+            <WestSideMenu />
           </LayoutPanel>
 
           <LayoutPanel region="center" style={{ height: '100%' }}>
-            <div style={titleStyle}>
-              使用Panel(Header and Footer)填充
+              {/* 使用Panel(Header and Footer)填充 */}
               <CenterPanel />
-            </div>
           </LayoutPanel>
         </Layout>
       </div>

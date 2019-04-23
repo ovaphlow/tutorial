@@ -11,6 +11,7 @@ export const themes = {
   },
 };
 
-export const ThemeContext = React.createContext(
-  themes.dark // 默认值
-);
+export const ThemeContext = React.createContext({
+  theme: themes.dark, // 默认值
+  toggle: () => {}
+});

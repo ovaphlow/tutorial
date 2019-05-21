@@ -9,6 +9,7 @@
 
 ### Windows
 解压缩版
+
     initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
     
     pg_ctl -D c:\pgsql\data -l c:\pgsql\logfile start

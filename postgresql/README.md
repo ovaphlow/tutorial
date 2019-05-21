@@ -7,7 +7,7 @@
 
     sudo pacman -S pgadmin4
 
-### Winwdows
+### Windows
 解压缩版
     initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
     

@@ -16,6 +16,7 @@ initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
 ```
 
 2. [可选]添加用户
+
 添加PostgresQL用户
 ```
 createuser --superuser [用户名]

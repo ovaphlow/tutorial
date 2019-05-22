@@ -17,9 +17,12 @@ initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
 ```
 
 2. 编辑第一步生成的data目录下的pg_ident.conf文件，按照注释中的说明加入用户
-
 ```
 [用户名] [用户名] [用户名]
+```
+某些情况还需要运行如下命令
+```
+createuser --superuser [用户名]
 ```
 
 3. 启动服务器进程（可能需要管理员权限）

@@ -30,3 +30,9 @@ createuser --superuser [用户名]
 ```
 pg_ctl -D c:\pgsql\data -l c:\pgsql\logfile start
 ```
+
+4. 注册为系统服务（需要管理员权限）
+```
+pg_ctl --pgdata=c:\pgsql\data --log=c:\pgsql\logfile -N PostgresQL -S auto register
+```
+-S 为启动类型，auto时为自动启动，demand时为手动启动

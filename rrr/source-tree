@@ -1,9 +1,0 @@
-# https://github.com/gothinkster/react-redux-realworld-example-app
-
-components/
-reducers/
-
-# promiseMiddleware
-middleware.js
-reducer.js
-store.js

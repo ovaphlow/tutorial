@@ -68,7 +68,7 @@ function main() {
   const clientTest = new test1Proto.Test('localhost:50051', grpc.credentials.createInsecure()) // Test是proto文件中的Service值
   console.info('初始化Test')
   let param
-  process.argv.length >= 3 ? param = process.argv[2] : '1123' // 设置发送的数据
+  process.argv.length >= 3 ? param = process.argv[2] : param = '测试' // 设置发送的数据
   // 通信在这之后开始
   clientTest.save({name: param}, (err, response) => { // name为proto文件中设置的发送参数
     if (err) console.error(err)

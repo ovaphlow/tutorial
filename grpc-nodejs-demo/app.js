@@ -16,7 +16,7 @@
  *
  */
 
-var PROTO_PATH = __dirname + '/protos/helloworld.proto';
+var PROTO_PATH = __dirname + '/protos/test.proto';
 
 var grpc = require('grpc');
 var protoLoader = require('@grpc/proto-loader');
@@ -28,10 +28,10 @@ var packageDefinition = protoLoader.loadSync(
      defaults: true,
      oneofs: true
     });
-var hello_proto = grpc.loadPackageDefinition(packageDefinition).helloworld;
+var testProto = grpc.loadPackageDefinition(packageDefinition).helloworld;
 
 function main() {
-  var client = new hello_proto.Greeter('localhost:50051',
+  var client = new testProto.Greeter('localhost:50051',
                                        grpc.credentials.createInsecure());
   var user;
   if (process.argv.length >= 3) {
@@ -43,6 +43,37 @@ function main() {
     if (err) console.error(err)
     console.log('Greeting:', response.message);
   });
+
+  client.sayHelloAgain({name: 'you'}, function (err, response) {
+    if (err) console.error(err)
+    console.log('Greeting:', response.message)
+  })
+
+  // test proto
+  console.info('begin test')
+  // test1PackageDefinition, test1Proto, clientTest 可以在文件中预先设置
+  test1PackageDefinition = protoLoader.loadSync(
+    './protos/test1.proto', // 加载proto文件
+    {
+      keepCase: true,
+      longs: String,
+      enums: String,
+      defaults: true,
+      oneofs: true
+    }
+  )
+  console.info('set package definition')
+  const test1Proto = grpc.loadPackageDefinition(test1PackageDefinition).test // 最后的test是proto文件中的package值
+  console.info('load package definition')
+  const clientTest = new test1Proto.Test('localhost:50051', grpc.credentials.createInsecure()) // Test是proto文件中的Service值
+  console.info('初始化Test')
+  let param
+  process.argv.length >= 3 ? param = process.argv[2] : '1123' // 设置发送的数据
+  // 通信在这之后开始
+  clientTest.save({name: param}, (err, response) => { // name为proto文件中设置的发送参数
+    if (err) console.error(err)
+    console.log('Test:', response.message) // message为proto文件中设置的接收参数
+  })
 }
 
 main();

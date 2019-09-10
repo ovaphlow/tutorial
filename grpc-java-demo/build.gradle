@@ -57,14 +57,15 @@ sourceSets {
 
 startScripts.enabled = false
 
-task helloWorldServer(type: CreateStartScripts) {
-    mainClassName = 'io.grpc.examples.helloworld.HelloWorldServer'
-    applicationName = 'hello-world-server'
+task gRpcServer(type: CreateStartScripts) {
+    // mainClassName = 'io.grpc.examples.helloworld.HelloWorldServer'
+    mainClassName = 'ovaphlow.demo.grpc.GRpcServer'
+    applicationName = 'gRpc-Server'
     outputDir = new File(project.buildDir, 'tmp')
     classpath = startScripts.classpath
 }
 
 applicationDistribution.into('bin') {
-    from(helloWorldServer)
+    from(gRpcServer)
     fileMode = 0755
 }

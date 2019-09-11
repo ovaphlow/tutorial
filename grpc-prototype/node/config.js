@@ -8,6 +8,9 @@ const config = {
   grpcServer: {
     port: 5401
   },
+  grpcServerJava: {
+    port: 5402
+  },
   storage: {
     user: 'kill8268',
     password: '',

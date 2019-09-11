@@ -2,6 +2,7 @@ const grpc = require('grpc')
 const protoLoader = require('@grpc/proto-loader')
 
 const config = require('../config')
+const sequelize = require('./sequelize')
 
 const PROTO_PATH = __dirname + '/../protos/test.proto'
 const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
@@ -13,9 +14,25 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
 
-const save = (call, callback) => {
+const save = async (call, callback) => {
+  // console.info(call.request)
+  let sql = `
+    select * from public.user order by id desc limit 20
+  `
+  let result = await sequelize.query(sql, {
+    type: sequelize.QueryTypes.SELECT
+  })
+    .catch(err => {
+      console.error(err)
+      callback(null, {
+        message: 'SERVER ERROR'
+      })
+    })
   callback(null, {
-    message: `Hello ${call.request.name}`
+    message: JSON.stringify({
+      message: '',
+      content: result
+    })
   })
 }
 

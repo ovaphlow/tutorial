@@ -20,5 +20,5 @@ message SaveRequest {
 
 // The response message containing the greetings
 message SaveReply {
-  string message = 1;
+  string message = 0;
 }

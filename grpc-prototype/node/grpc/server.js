@@ -1,3 +1,5 @@
+const cluster = require('cluster')
+
 const grpc = require('grpc')
 const protoLoader = require('@grpc/proto-loader')
 
@@ -13,6 +15,16 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   oneofs: true
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
+
+const userProto = grpc.loadPackageDefinition(
+  protoLoader.loadSync(__dirname + '/../protos/user.proto'), {
+    keepCase: true,
+    longs: String,
+    enums: String,
+    defaults: true,
+    oneofs: true
+  }
+).user
 
 const save = async (call, callback) => {
   // console.info(call.request)
@@ -36,12 +48,33 @@ const save = async (call, callback) => {
   })
 }
 
-const main = () => {
-  const server = new grpc.Server()
-  server.addService(testProto.Test.service, {save: save})
-  server.bind(`0.0.0.0:${config.grpcServer.port}`, grpc.ServerCredentials.createInsecure())
-  server.start()
-  console.info(`${new Date()} gRpc 服务启动于端口 ${config.grpcServer.port}`)
-}
+if (cluster.isMaster) {
+  console.log(`${new Date()} 启动 gRPC 服务`)
+  console.log(`${new Date()} 主进程 PID: ${process.pid}`)
 
-main()
+  for (let i = 0; i < config.gRPCServer.numChildProcesses; i++) {
+    cluster.fork()
+  }
+
+  cluster.on('online', worker => {
+    console.log(`${new Date()} 子进程 PID: ${worker.process.pid}, 端口: ${config.gRPCServer.port}`)
+  })
+
+  cluster.on('exit', (worker, code, signal) => {
+    console.log(`${new Date()} 子进程 PID: ${worker.process.pid} 终止, 错误代码: ${code}, 信号: ${signal}`)
+    console.log(`${new Date()} 由主进程(PID: ${process.pid})创建新的子进程`)
+    cluster.fork()
+  })
+} else {
+  const server = new grpc.Server()
+
+  server.addService(testProto.Test.service, {save: save})
+
+  const userService = require('./services/user')
+  server.addService(userProto.User.service, {
+    list: userService.list
+  })
+
+  server.bind(`0.0.0.0:${config.gRPCServer.port}`, grpc.ServerCredentials.createInsecure())
+  server.start()
+}

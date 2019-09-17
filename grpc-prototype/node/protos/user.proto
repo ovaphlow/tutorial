@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ovaphlow.demo.grpc";
+option java_outer_classname = "UserProto";
+option objc_class_prefix = "USER";
+
+package user;
+
+service User {
+  rpc List(ListRequest) returns (Reply) {}
+}
+
+message ListRequest {}
+
+message Reply {
+  string data = 0;
+}

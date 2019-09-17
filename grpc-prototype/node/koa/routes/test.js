@@ -13,7 +13,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
   oneofs: true
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
-const client = new testProto.Test(`localhost:${config.grpcServerJava.port}`, grpc.credentials.createInsecure()) // Test是proto文件中的Service值
+const client = new testProto.Test(`localhost:${config.gRPCServer.port}`, grpc.credentials.createInsecure()) // Test是proto文件中的Service值
 
 const router = new Router({
   prefix: '/api/test'
@@ -29,7 +29,7 @@ router
             reject(err)
             return
           }
-          console.info(response)
+          // console.info(response)
           resolve(JSON.parse(response.message))
         })
       })

@@ -6,8 +6,9 @@ const config = {
     port: 5400,
     numChildProcesses: os.cpus().length
   },
-  grpcServer: {
-    port: 5401
+  gRPCServer: {
+    port: 5401,
+    numChildProcesses: os.cpus().length
   },
   grpcServerJava: {
     port: 5402

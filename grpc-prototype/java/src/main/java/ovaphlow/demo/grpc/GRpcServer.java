@@ -6,6 +6,8 @@ import io.grpc.ServerBuilder;
 import java.io.IOException;
 import java.util.logging.Logger;
 
+import com.zaxxer.hikari.HikariDataSource;
+
 public class GRpcServer {
     private static final Logger logger = Logger.getLogger(Server.class.getName());
 
@@ -44,5 +46,14 @@ public class GRpcServer {
         final GRpcServer server = new GRpcServer();
         server.start();
         server.blockUntilShutdown();
+
+        logger.info("initialize database connection");
+        HikariDataSource ds = new HikariDataSource();
+        ds.setJdbcUrl("jdbc:postgresql://192.168.1.246:5432/hengda");
+        ds.setUsername("kill8268");
+        ds.setPassword("");
+        ds.addDataSourceProperty("cachePrepStmts", "true");
+        ds.addDataSourceProperty("prepStmtCacheSize", "250");
+        ds.addDataSourceProperty("prepStmtCacheSqlLimit", "2048");
     }
 }

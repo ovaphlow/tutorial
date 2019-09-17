@@ -23,6 +23,9 @@ dependencies {
     implementation "com.google.protobuf:protobuf-java-util:${protobufVersion}"
 
     runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    implementation "com.zaxxer:HikariCP-java7:2.4.13"
+    implementation "org.postgresql:postgresql:42.2.7"
 }
 
 protobuf {

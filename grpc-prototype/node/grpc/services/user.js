@@ -19,7 +19,7 @@ module.exports = {
       console.error(err)
       callback(null, {
         data: JSON.stringify({
-          message: 'gRPC服务错误'
+          message: 'gRPC服务器错误'
         })
       })
     }

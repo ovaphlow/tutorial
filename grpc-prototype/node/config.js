@@ -3,7 +3,8 @@ const os = require('os')
 const config = {
   env: 'development',
   webServer: {
-    port: 5400
+    port: 5400,
+    numChildProcesses: os.cpus().length
   },
   grpcServer: {
     port: 5401

@@ -1,4 +1,3 @@
-// package io.grpc.examples.helloworld;
 package ovaphlow.demo.grpc;
 
 import io.grpc.Server;
@@ -7,7 +6,6 @@ import io.grpc.stub.StreamObserver;
 import java.io.IOException;
 import java.util.logging.Logger;
 
-// public class HelloWorldServer {
 public class GRpcServer {
   private static final Logger logger = Logger.getLogger(GRpcServer.class.getName());
 

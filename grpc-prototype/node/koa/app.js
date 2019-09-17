@@ -26,6 +26,8 @@ const testRouter = require('./routes/test')
 app.use(testRouter.routes())
 app.use(testRouter.allowedMethods())
 
-app.listen(config.webServer.port, () => {
-  console.log(`${new Date()} Web 服务启动于端口 ${config.webServer.port}`)
-})
+// app.listen(config.webServer.port, () => {
+//   console.log(`${new Date()} Web 服务启动于端口 ${config.webServer.port}`)
+// })
+
+module.exports = app

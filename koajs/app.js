@@ -15,6 +15,8 @@ app.use((ctx, next) => {
 const testRouter = require('./routes/test')
 app.use(testRouter.routes())
 
-server.listen(5000, () => {
-  console.info(`WEB服务运行于端口 80`)
-})
+// server.listen(5000, () => {
+//   console.info(`WEB服务运行于端口 80`)
+// })
+
+module.exports = app

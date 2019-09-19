@@ -14,7 +14,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
 const client = new testProto.Test(
-  `${config.gRPCServerJava.host}:${config.gRPCServer.port}`,
+  `${config.gRPCServer.host}:${config.gRPCServer.port}`,
   grpc.credentials.createInsecure()
 ) // Test是proto文件中的Service值
 

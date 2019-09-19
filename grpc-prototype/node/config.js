@@ -7,10 +7,12 @@ const config = {
     numChildProcesses: os.cpus().length
   },
   gRPCServer: {
+    host: 'localhost',
     port: 5401,
     numChildProcesses: os.cpus().length
   },
-  grpcServerJava: {
+  gRPCServerJava: {
+    host: 'localhost',
     port: 5402
   },
   storage: {

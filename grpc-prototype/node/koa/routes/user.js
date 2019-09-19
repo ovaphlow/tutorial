@@ -13,7 +13,10 @@ const proto = grpc.loadPackageDefinition(
     oneofs: true
   }
 ).user
-const client = new proto.User(`localhost:${config.gRPCServer.port}`, grpc.credentials.createInsecure())
+const client = new proto.User(
+  `${config.gRPCServerJava.host}:${config.gRPCServerJava.port}`,
+  grpc.credentials.createInsecure()
+)
 
 const  router = new Router({
   prefix: '/api/user'
@@ -24,6 +27,7 @@ router
     const list = () => {
       return new Promise((resolve, reject) => {
         client.list({}, (err, response) => {
+          console.info(response)
           if (err) {
             console.error(err)
             reject(err)

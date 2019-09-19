@@ -40,6 +40,7 @@ router
     try {
       ctx.response.body = await list()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })
@@ -62,6 +63,7 @@ router
     try {
       ctx.response.body = await fetch()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })
@@ -84,6 +86,7 @@ router
     try {
       ctx.response.body = await fetch()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })
@@ -108,6 +111,7 @@ router
     try {
       ctx.response.body = await fetch()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })
@@ -128,6 +132,7 @@ router
     try {
       ctx.response.body = await fetch()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })

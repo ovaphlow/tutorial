@@ -14,7 +14,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
 const client = new testProto.Test(
-  `${config.gRPCServer.host}:${config.gRPCServer.port}`,
+  `${config.gRPCServerJava.host}:${config.gRPCServerJava.port}`,
   grpc.credentials.createInsecure()
 ) // Test是proto文件中的Service值
 
@@ -24,22 +24,24 @@ const router = new Router({
 
 router
   .get('/', async ctx => {
-    const list = () => {
+    const fetch = () => {
       return new Promise((resolve, reject) => {
-        client.save({name: '1123'}, (err, response) => {
+        client.save({name: '11231'}, (err, response) => {
           if (err) {
             console.error(err)
             reject(err)
             return
           }
-          // console.info(response)
-          resolve(JSON.parse(response.message))
+          console.info(response)
+          // resolve(JSON.parse(response.message))
+          resolve(response)
         })
       })
     }
     try {
-      ctx.response.body = await list()
+      ctx.response.body = await fetch()
     } catch (err) {
+      console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
   })

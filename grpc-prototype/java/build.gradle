@@ -51,7 +51,7 @@ startScripts.enabled = false
 
 task gRpcServer(type: CreateStartScripts) {
     mainClassName = 'ovaphlow.demo.grpc.GRpcServer'
-    applicationName = 'gRpc-Server'
+    applicationName = 'grpc-server-java'
     outputDir = new File(project.buildDir, 'tmp')
     classpath = startScripts.classpath
 }

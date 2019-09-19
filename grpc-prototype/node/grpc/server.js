@@ -72,7 +72,11 @@ if (cluster.isMaster) {
 
   const userService = require('./services/user')
   server.addService(userProto.User.service, {
-    list: userService.list
+    list: userService.list,
+    save: userService.save,
+    get: userService.get,
+    update: userService.update,
+    remove: userService.remove
   })
 
   server.bind(`0.0.0.0:${config.gRPCServer.port}`, grpc.ServerCredentials.createInsecure())

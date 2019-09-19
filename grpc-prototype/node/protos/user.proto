@@ -9,10 +9,34 @@ package user;
 
 service User {
   rpc List(ListRequest) returns (Reply) {}
+
+  rpc Save(SaveRequest) returns (Reply) {}
+
+  rpc Get(GetRequest) returns (Reply) {}
+
+  rpc Update(UpdateRequest) returns (Reply) {}
+
+  rpc Remove(RemoveRequest) returns (Reply) {}
 }
 
 message ListRequest {}
 
+message SaveRequest {
+  string data = 1;
+}
+
+message GetRequest {
+  string id = 1;
+}
+
+message UpdateRequest {
+  string data = 1;
+}
+
+message RemoveRequest {
+  string id = 1;
+}
+
 message Reply {
-  string data = 0;
+  string data = 1;
 }

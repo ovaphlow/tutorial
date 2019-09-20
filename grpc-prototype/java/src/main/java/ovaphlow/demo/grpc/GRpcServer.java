@@ -14,7 +14,7 @@ import java.util.logging.Logger;
 import com.zaxxer.hikari.HikariDataSource;
 
 public class GRpcServer {
-    private static final Logger logger = Logger.getLogger(Server.class.getName());
+    private static final Logger logger = Logger.getLogger(GRpcServer.class.getName());
 
     private Server server;
 

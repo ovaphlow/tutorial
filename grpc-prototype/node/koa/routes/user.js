@@ -18,7 +18,7 @@ const client = new proto.User(
   grpc.credentials.createInsecure()
 )
 
-const  router = new Router({
+const router = new Router({
   prefix: '/api/user'
 })
 

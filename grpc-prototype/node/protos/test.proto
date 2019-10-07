@@ -11,7 +11,15 @@ package test;
 service Test {
   // Sends a greeting
   rpc Save (SaveRequest) returns (SaveReply) {}
+
+  rpc list (TestRequest) returns (TestReply) {}
+
+  rpc get (TestRequest) returns (TestReply) {}
 }
+
+message TestRequest { string data = 1; }
+
+message TestReply { string data = 1; }
 
 // The request message containing the user's name.
 message SaveRequest {

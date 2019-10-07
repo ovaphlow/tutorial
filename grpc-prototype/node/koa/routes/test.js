@@ -26,15 +26,55 @@ router
   .get('/', async ctx => {
     const fetch = () => {
       return new Promise((resolve, reject) => {
+        client.list({data: 'request for list'}, (err, response) => {
+          if (err) {
+            console.error(err)
+            reject(err)
+            return
+          }
+          resolve(JSON.parse(response.data))
+        })
+      })
+    }
+    try {
+      ctx.response.body = await fetch()
+    } catch (err) {
+      console.error(err)
+      ctx.response.body = {message: '服务器错误'}
+    }
+  })
+  .post('/', async ctx => {
+    const fetch = () => {
+      return new Promise((resolve, reject) => {
         client.save({name: '11231'}, (err, response) => {
           if (err) {
             console.error(err)
             reject(err)
             return
           }
-          console.info(response)
-          // resolve(JSON.parse(response.message))
           resolve(response)
+        })
+      })
+    }
+    try {
+      ctx.response.body = await fetch()
+    } catch (err) {
+      console.error(err)
+      ctx.response.body = {message: '服务器错误'}
+    }
+  })
+
+router
+  .get('/:id', async ctx => {
+    const fetch = () => {
+      return new Promise((resolve, reject) => {
+        client.get({data: JSON.stringify(ctx.params)}, (err, response) => {
+          if (err) {
+            console.error(err)
+            reject(err)
+            return
+          }
+          resolve(JSON.parse(response.data))
         })
       })
     }

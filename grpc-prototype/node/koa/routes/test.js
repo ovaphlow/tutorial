@@ -14,7 +14,7 @@ const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
 })
 const testProto = grpc.loadPackageDefinition(packageDefinition).test
 const client = new testProto.Test(
-  `${config.gRPCServerJava.host}:${config.gRPCServerJava.port}`,
+  `${config.gRPCServer.host}:${config.gRPCServer.port}`,
   grpc.credentials.createInsecure()
 ) // Test是proto文件中的Service值
 
@@ -42,6 +42,20 @@ router
       console.error(err)
       ctx.response.body = {message: '服务器错误'}
     }
+
+    // const sequelize = require('../../grpc/sequelize')
+    // let sql = `
+    //   select * from public.user order by id desc limit 20
+    // `
+    // try {
+    //   let result = await sequelize.query(sql, {
+    //     type: sequelize.QueryTypes.SELECT
+    //   })
+    //   ctx.response.body = {message: '', content: result}
+    // } catch (err) {
+    //   console.error(err)
+    //   ctx.response.body = {message: 'gRPC服务器错误'}
+    // }
   })
   .post('/', async ctx => {
     const fetch = () => {

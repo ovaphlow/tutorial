@@ -68,7 +68,12 @@ if (cluster.isMaster) {
 } else {
   const server = new grpc.Server()
 
-  server.addService(testProto.Test.service, {save: save})
+  const testService = require('./services/test')
+  server.addService(testProto.Test.service, {
+    save: save,
+    list: testService.list,
+    get: testService.get
+  })
 
   const userService = require('./services/user')
   server.addService(userProto.User.service, {

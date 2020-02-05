@@ -1,0 +1,57 @@
+# MySQL的安装过程
+
+    版本：8.0.18
+    操作系统：Windows 10
+
+## 下载文件
+
+[文件地址](https://cdn.mysql.com/archives/mysql-8.0/mysql-8.0.18-winx64.zip)
+
+## 解压缩文件
+
+例如：d:\mysql-8.0.18-winx64 目录下
+
+## 初始化MySQL数据库
+
+终端中进入MySQL的bin目录：
+
+    d:
+    cd \mysql-8.0.18-winx64\bin
+
+然后运行：
+
+    mysqld --initialize --console
+
+记录root@localhost: 后面的代码，这是本地root用户的初始密码，我这里的是 ycYy=sMbm4<i
+
+在MySQL的解压目录下创建 my.cnf 文件，内容为：
+
+    [mysqld]
+    bind_address=127.0.0.1
+    port=3306
+    innodb_buffer_pool_instances=2
+    innodb_buffer_pool_size=2G
+
+再创建 start.cmd 文件，内容为：
+
+    .\bin\mysqld.exe --defaults-file=my.cnf
+
+运行这个cmd文件，没有失误的话MySQL服务应该已经运行了。
+
+## 修改root密码
+
+之前自动生成的root密码太复杂了，需要换成一个自己熟悉的。
+
+在终端中进入MySQL中的bin目录，运行：
+
+    mysql -u root -p
+
+然后输入之前自动生成的root用户的初始密码，进入mysql程序后，输入：
+
+    alter user 'root'@'localhost' identified with mysql_native_password by '你自己熟悉的密码';
+
+最后运行：
+
+    flush privileges;
+
+就可以了。

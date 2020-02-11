@@ -55,3 +55,15 @@
     flush privileges;
 
 就可以了。
+
+## 使用新用户
+
+在MySQL终端下顺序执行：
+
+```
+create user '用户名'@'%' identified with mysql_native_password by '你自己熟悉的密码';
+
+grant all privileges on *.* to '用户名'@'%';
+
+flush privileges;
+```

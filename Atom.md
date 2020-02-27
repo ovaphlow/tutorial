@@ -1,4 +1,4 @@
-# Github Atom
+# GitHub Atom
 
 ## 设置APM镜像源
 

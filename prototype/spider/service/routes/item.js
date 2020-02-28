@@ -13,5 +13,12 @@ router
     ctx.response.body = { message: '', content: [] }
   })
   .post('/', async ctx => {
-    ctx.response.body = { message: 'POST', content: '' }
+    const client.await postgres.connect()
+    try {
+      const result = await client.query(``, [])
+      console.info(result.rows[0])
+      ctx.response.body = { message: 'POST', content: '' }
+    } finally {
+      client.release()
+    }
   })

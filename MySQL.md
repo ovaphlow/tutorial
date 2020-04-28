@@ -26,11 +26,14 @@
 
 在MySQL的解压目录下创建 my.cnf 文件，内容为：
 
-    [mysqld]
-    bind_address=127.0.0.1
-    port=3306
-    innodb_buffer_pool_instances=2
-    innodb_buffer_pool_size=2G
+```
+[mysqld]
+bind_address=127.0.0.1
+port=3306
+default-time_zone='+8:00'
+innodb_buffer_pool_size=2G
+innodb_buffer_pool_instances=2
+```
 
 再创建 start.cmd 文件，内容为：
 

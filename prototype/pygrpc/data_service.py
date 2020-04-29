@@ -18,6 +18,7 @@ async def list_vault():
     print(result)
     await conn.close()
 
+
 class Vault(vault_pb2_grpc.VaultServicer):
 
     def list(self, request, context):

@@ -1,6 +1,6 @@
-# How we write SQL in Java8
+# How we write SQL in Java
 
-## using JDBC
+## using JDBC (Java7)
 
 ```Java
 List<Schema> result = new ArrayList<>();
@@ -22,7 +22,7 @@ try (Connection c = getConnection()) {
 }
 ```
 
-## using Apache DbUtils
+## using Apache DbUtils (Java8)
 
 ```Java
 try (Connection c = getConnection()) {

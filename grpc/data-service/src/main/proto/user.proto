@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "ovaphlow.prototype.grpc.data";
+option java_outer_classname = "UserProto";
+
+package user;
+
+service User {
+    rpc signIn (UserRequest) returns (UserReply) {}
+}
+
+message UserRequest { string data = 1; }
+
+message UserReply { string data = 1; }

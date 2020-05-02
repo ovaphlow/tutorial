@@ -1,0 +1,73 @@
+plugins {
+    id 'java'
+    id 'application'
+    id 'com.google.protobuf' version '0.8.8'
+    id 'idea'
+}
+
+group 'ovaphlow.prototype.grpc.data'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+//sourceCompatibility = 1.7
+//targetCompatibility = 1.7
+
+def grpcVersion = '1.28.1'
+def protobufVersion = '3.11.0'
+def protocVersion = protobufVersion
+
+dependencies {
+    implementation "io.grpc:grpc-protobuf:${grpcVersion}"
+    implementation "io.grpc:grpc-stub:${grpcVersion}"
+    compileOnly 'javax.annotation:javax.annotation-api:1.2'
+
+    implementation "com.google.protobuf:protobuf-java-util:${protobufVersion}"
+
+    runtimeOnly "io.grpc:grpc-netty-shaded:${grpcVersion}"
+
+    implementation 'ch.qos.logback:logback-classic:1.2.3'
+
+    implementation 'com.zaxxer:HikariCP:3.4.2'
+    implementation 'org.postgresql:postgresql:42.2.12'
+}
+
+protobuf {
+    protoc { artifact = "com.google.protobuf:protoc:${protocVersion}" }
+    plugins {
+        grpc { artifact = "io.grpc:protoc-gen-grpc-java:${grpcVersion}" }
+    }
+    generateProtoTasks {
+        all()*.plugins { grpc {} }
+    }
+}
+
+sourceSets {
+    main {
+        java {
+            srcDirs 'build/generated/source/proto/main/grpc'
+            srcDirs 'build/generated/source/proto/main/java'
+        }
+    }
+}
+
+startScripts.enabled = false
+
+tasks.withType(JavaCompile) {
+    options.encoding = "UTF-8"
+}
+
+task dataService(type: CreateStartScripts) {
+    mainClassName = 'ovaphlow.prototype.grpc.data.Application'
+    applicationName = 'ovaphlow.prototype.grpc.data.202005-1'
+    outputDir = new File(project.buildDir, 'tmp')
+    classpath = startScripts.classpath
+}
+
+applicationDistribution.into('bin') {
+    from(dataService)
+    fileMode = 0755
+}

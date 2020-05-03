@@ -17,7 +17,7 @@ initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
 
 2. 启动服务器进程（可能需要管理员权限）
 ```
-pg_ctl -D c:\pgsql\data -l c:\pgsql\logfile start
+pg_ctl --pgdata=c:\pgsql\data --log=c:\pgsql\logfile start
 ```
 
 3. [可选]添加用户

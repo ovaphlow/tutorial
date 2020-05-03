@@ -11,7 +11,8 @@
 解压缩版
 
 1. 初始化数据库（可能需要管理员权限）
-```
+
+```cmd
 initdb --encoding=UTF-8 --locale=chs --pgdata=c:\pgsql\data
 ```
 

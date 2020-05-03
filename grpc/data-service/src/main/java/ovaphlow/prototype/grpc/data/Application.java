@@ -6,6 +6,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 public class Application {
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
@@ -35,7 +36,7 @@ public class Application {
 
     private void stop() throws InterruptedException {
         if (server != null) {
-            server.awaitTermination();
+            server.shutdown().awaitTermination(30, TimeUnit.SECONDS);
         }
     }
 

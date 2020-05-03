@@ -31,8 +31,9 @@ dependencies {
 
     implementation 'ch.qos.logback:logback-classic:1.2.3'
 
-    implementation 'com.zaxxer:HikariCP:3.4.2'
     implementation 'org.postgresql:postgresql:42.2.12'
+    implementation 'com.zaxxer:HikariCP:3.4.2'
+    implementation 'commons-dbutils:commons-dbutils:1.7'
 }
 
 protobuf {

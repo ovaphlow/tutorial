@@ -8,6 +8,7 @@ package user;
 
 service User {
     rpc signIn (UserRequest) returns (UserReply) {}
+    rpc signUp (UserRequest) returns (UserReply) {}
 }
 
 message UserRequest { string data = 1; }

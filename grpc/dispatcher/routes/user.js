@@ -19,7 +19,7 @@ const grpcClient = new proto.User(
 )
 
 const router = new Router({
-  prefix: '/api/user'
+  prefix: '/api/common-user'
 })
 
 module.exports = router

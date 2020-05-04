@@ -4,6 +4,7 @@ import com.google.gson.Gson;
 import io.grpc.stub.StreamObserver;
 import org.apache.commons.dbutils.QueryRunner;
 import org.apache.commons.dbutils.handlers.ArrayListHandler;
+import org.apache.commons.dbutils.handlers.MapHandler;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -59,9 +60,10 @@ public class UserServiceImpl extends UserGrpc.UserImplBase {
             String sql = "insert into public.common_user (uuid, username, password" +
                     "values (?, ?, ?) " +
                     "returning id";
-            new QueryRunner()
-                    .query(conn, sql, new ArrayListHandler())
-                    .stream();
+            QueryRunner qr = new QueryRunner();
+            Map<String, Object> result = new HashMap<>();
+            result = qr.query(conn, sql, new MapHandler());
+            logger.info("", result);
         } catch (Exception e) {
             e.printStackTrace();
             resp.put("message", "gRPC服务错误");

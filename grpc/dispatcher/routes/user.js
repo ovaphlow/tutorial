@@ -63,9 +63,9 @@ router.get('/sign-up', async ctx => {
       ctx.response.body = { message: '请完整填写所需信息', content: '' }
       return
     }
-    ctx.response.body = await fetch(Object.assign{
+    ctx.response.body = await fetch(Object.assign({
       uuid: uuid.v5(ctx.request.query.username, config.app.namespaceByteArray)
-    }, ctx.request.search)
+    }, ctx.request.query))
   } catch (err) {
     console.error(err)
     ctx.response.body = {message: '服务器错误'}

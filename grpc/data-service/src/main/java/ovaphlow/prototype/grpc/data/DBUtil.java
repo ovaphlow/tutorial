@@ -17,9 +17,12 @@ public class DBUtil {
 
     static {
         HikariConfig config = new HikariConfig();
-        config.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/ovaphlow");
-        config.setUsername("ovaphlow");
-        config.setPassword("");
+//        config.setJdbcUrl("jdbc:postgresql://127.0.0.1:5432/ovaphlow");
+//        config.setUsername("ovaphlow");
+//        config.setPassword("");
+        config.setJdbcUrl("jdbc:postgresql://192.168.1.246:5432/ovaphlow");
+        config.setUsername("hengda");
+        config.setPassword("srd@HD.1123");
 //        config.setMinimumIdle(0);
         config.setMaximumPoolSize(8);
         config.addDataSourceProperty("cachePrepStmts", "true");

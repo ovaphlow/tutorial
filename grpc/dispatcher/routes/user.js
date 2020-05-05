@@ -48,7 +48,7 @@ router.get('/sign-in', async ctx => {
 router.get('/sign-up', async ctx => {
   const fetch = body => {
     return new Promise((resolve, reject) => {
-      grpcClient.signIn({data: JSON.stringify(body)}, (err, response) => {
+      grpcClient.signUp({data: JSON.stringify(body)}, (err, response) => {
         if (err) {
           console.error(err)
           reject(err)
@@ -63,6 +63,10 @@ router.get('/sign-up', async ctx => {
       ctx.response.body = { message: '请完整填写所需信息', content: '' }
       return
     }
+    const data = Object.assign({
+      uuid: uuid.v5(ctx.request.query.username, config.app.namespaceByteArray)
+    }, ctx.request.query)
+    console.info(data)
     ctx.response.body = await fetch(Object.assign({
       uuid: uuid.v5(ctx.request.query.username, config.app.namespaceByteArray)
     }, ctx.request.query))

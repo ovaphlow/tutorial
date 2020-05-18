@@ -22,6 +22,8 @@
 
     mysqld --initialize --console
 
+如果不能正常运行，可能需要下载并安装[Visual C++ Redis](https://www.microsoft.com/zh-CN/download/details.aspx?id=48145)
+
 记录root@localhost: 后面的代码，这是本地root用户的初始密码，我这里的是 ycYy=sMbm4<i
 
 在MySQL的解压目录下创建 my.cnf 文件，内容为：

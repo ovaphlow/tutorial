@@ -44,3 +44,7 @@ innodb_buffer_pool_size=2G
 ```bash
 bin\mysqld.exe
 ```
+
+## 连接
+
+使用客户端连接时，用户名为 root，空密码。

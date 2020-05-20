@@ -1,4 +1,5 @@
 const cluster = require('cluster')
+const http = require('http')
 const os = require('os')
 
 const app = require('./app')
@@ -22,5 +23,5 @@ if (cluster.isMaster) {
     cluster.fork()
   })
 } else {
-  app.listen(5000)
+  http.createServer(app.callback()).listen(5000)
 }

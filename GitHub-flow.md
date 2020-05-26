@@ -23,7 +23,7 @@ git status
 
 ```bash
 git add --all
-git commit --message="..."
+git commit --message="close #ISSUE_NUMBER"
 ```
 
 ```bash

@@ -32,6 +32,8 @@ git push
 
 ### 提交 pull request
 
+### 管理员进行 code review
+
 ### 更新本地 master 分支
 
 ```bash

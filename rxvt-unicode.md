@@ -1,4 +1,4 @@
->> ~/.Xresources
+> ~/.Xresources
 
 ```config
 !!$HOME/.Xresources
@@ -45,7 +45,7 @@ Rxvt.font:xft:Cascadia Mono:antialias=True:pixelsize=15,xft:Source Code Pro:pixe
 Rxvt.boldfont:xft:Cascadia Mono:antialias=True:pixelsize=15,xft:Source Code Pro:pixelsize=15
 ```
 
->> ~/.xinitrc
+> ~/.xinitrc
 
 ```config
 xrdb -load ~/Xresources

@@ -1,4 +1,4 @@
-```bash
+```shell
 pg_dump
     --host=127.0.0.1
     --username=ovaphlow
@@ -9,6 +9,6 @@ pg_dump
     --file=hengda.public.sql
 ```
 
-```bash
+```shell
 psql DATABASE_NAME < FILE_PATH
 ```

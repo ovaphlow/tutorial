@@ -7,6 +7,7 @@ pg_dump
     --no-owner
     --schema-only
     --file=hengda.public.sql
+    --verbos
 ```
 
 ```shell

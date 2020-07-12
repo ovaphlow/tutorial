@@ -1,3 +1,9 @@
+# Windows Terminal
+
+> 参考 [官方文档](https://docs.microsoft.com/zh-cn/windows/terminal/tutorials/powerline-setup)
+
+## settings.json
+
 ```json
 {
     "initialCols": 100,

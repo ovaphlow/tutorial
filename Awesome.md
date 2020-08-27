@@ -1,4 +1,22 @@
--- 菜单
+# Awesome WM
+
+## 配置
+
+gap
+
+```lua
+beautiful.useless_gap = 6
+```
+
+wallpaper
+
+```lua
+gears.wallpaper.maximized("/home/ovaph/图片/tr_shadow.jpg")
+```
+
+菜单
+
+```lua
 mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesome_icon },
                                     { "Thunar", "thunar" },
                                     { "Firefox", "firefox" },
@@ -6,10 +24,16 @@ mymainmenu = awful.menu({ items = { { "awesome", myawesomemenu, beautiful.awesom
                                     { "open terminal", terminal }
                                   }
                        })
+```
 
--- 修改顶部 TAG
+tag
+
+```lua
 awful.tag({ "1.DEFAULT", "2.CODE", "3.TERMINAL", "4", "5", "6" }, s, awful.layout.layouts[1])
+```
+auto run
 
--- autorun
-awful.util.spawn_with_shell("ibus-daemon --xim") -- IBUS
-awful.util.spawn_with_shell("xrandr --output HDMI-1-1 --rotate right --output HDMI-1-2 --auto --right-of HDMI-1-1") -- 显示器
+```lua
+awful.spawn.with_shell("ibus-daemon --xim") -- IBUS
+awful.spawn.with_shell("xrandr --output HDMI-1-1 --rotate right --output HDMI-1-2 --auto --right-of HDMI-1-1") -- 显示器
+```

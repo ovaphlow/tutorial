@@ -31,9 +31,3 @@ tag
 ```lua
 awful.tag({ "1.DEFAULT", "2.CODE", "3.TERMINAL", "4", "5", "6" }, s, awful.layout.layouts[1])
 ```
-auto run
-
-```lua
-awful.spawn.with_shell("ibus-daemon --xim") -- IBUS
-awful.spawn.with_shell("xrandr --output HDMI-1-1 --rotate right --output HDMI-1-2 --auto --right-of HDMI-1-1") -- 显示器
-```

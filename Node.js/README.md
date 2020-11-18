@@ -4,7 +4,7 @@
 
 ### 设置 registry 使用国内镜像
 
-```bash
+```shell
 npm config set registry https://registry.npm.taobao.org
 ```
 
@@ -12,7 +12,7 @@ npm config set registry https://registry.npm.taobao.org
 
 ### 安装
 
-```bash
+```shell
 npm install yarn --global
 ```
 
@@ -20,4 +20,10 @@ npm install yarn --global
 
 ```bash
 yarn config set registry https://registry.npm.taobao.org
+```
+
+## gRPC
+
+```shell
+npm install --grpc_node_binary_host_mirror=https://npm.taobao.org/mirrors/
 ```

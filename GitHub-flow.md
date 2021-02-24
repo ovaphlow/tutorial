@@ -9,34 +9,34 @@ git branch <FEATURE_NAME>
 git checkout <FEATURE_NAME>
 ```
 
-### 将 <FEATURE_NAME> 分支上传至服务器
 
-```bash
-git push --set-upstream origin <FEATURE_NAME>
-```
 
 ### 本地开发阶段
 
-```bash
+```
 git status
 ```
 
-```bash
+```
 git add --all
-git commit --message="close #ISSUE_NUMBER"
+git commit --message "close #ISSUE_NUMBER"
 ```
 
-```bash
-git push
+### 将 <FEATURE_NAME> 分支提交至服务器
+
+```
+git push --set-upstream origin <FEATURE_NAME>
 ```
 
 ### 提交 pull request
 
 ### 管理员 review code
 
+### 管理员合并分支
+
 ### 更新本地 master 分支
 
-```bash
+```
 git checkout master
 git pull --rebase
 git branch --delete <FEATURE_NAME>

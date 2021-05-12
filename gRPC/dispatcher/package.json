@@ -9,7 +9,7 @@
     "@koa/multer": "^2.0.2",
     "@koa/router": "^8.0.8",
     "google-protobuf": "^3.11.4",
-    "grpc": "^1.24.2",
+    "grpc": "^1.24.9",
     "koa": "^2.11.0",
     "koa-bodyparser": "^4.3.0",
     "multer": "^1.4.2",

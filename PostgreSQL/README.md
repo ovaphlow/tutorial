@@ -63,6 +63,16 @@ initdb --pgdata /usr/local/pgsql/data --locale zh_CN.UTF-8 --encoding UTF8 --aut
 pg_ctl --pgdata /usr/local/pgsql/data --log /usr/local/pgsql/logfile start
 ```
 
+### 设置接受局域网连接（可选）
+
+1. 编辑文件 /usr/local/pgsql/data/postgres.conf，找到 listen_addresses 行，将其值改为 '*'；
+1. 编辑文件 /usr/local/pgsql/data/pg_hba.conf，添加行 host all all 192.168.0.0/16 password；
+1. 重载服务器
+
+```shell
+pg_ctl --pgdata /usr/local/pgsql/data --log /usr/local/pgsql/logfile reload
+```
+
 ### 修改密码（可选）
 
 连接数据库

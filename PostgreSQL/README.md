@@ -1,4 +1,6 @@
-### Manjaro
+# 安装
+
+## Manjaro
     pacman -S postgresql
 
     sudo su postgres -l
@@ -7,7 +9,7 @@
 
     sudo pacman -S pgadmin4
 
-### Windows
+## Windows
 解压缩版
 
 1. 初始化数据库（可能需要管理员权限）
@@ -36,3 +38,40 @@ createuser --superuser [用户名]
 pg_ctl --pgdata=c:\pgsql\data -N PostgresQL -S auto register
 ```
 -S 为启动类型，auto时为自动启动，demand时为手动启动
+
+## openSUSE
+
+安装服务
+
+```shell
+sudo zypper install postgresql-server
+···
+
+切换用户
+```shell
+su postgres
+```
+
+初始化
+```shell
+initdb --pgdata /usr/local/pgsql/data --locale zh_CN.UTF-8 --encoding UTF8 --auth trust
+```
+
+启动
+
+```shell
+pg_ctl --pgdata /usr/local/pgsql/data --log /usr/local/pgsql/logfile start
+```
+
+### 修改密码（可选）
+
+连接数据库
+
+```shell
+psql --password
+```
+
+修改默认密码
+```sql
+alter user postgres with password 'dsdfjk';
+```

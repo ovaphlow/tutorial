@@ -45,7 +45,7 @@ pg_ctl --pgdata=c:\pgsql\data -N PostgresQL -S auto register
 
 ```shell
 sudo zypper install postgresql-server
-···
+```
 
 切换用户
 ```shell

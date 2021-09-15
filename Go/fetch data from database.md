@@ -1,3 +1,6 @@
+# fetch data from MySQL
+
+```go
 package main
 
 import (
@@ -87,3 +90,4 @@ func main() {
     // log.Println(mapResult)
     // log.Println(mapResult["name"])
 }
+```

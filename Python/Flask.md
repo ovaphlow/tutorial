@@ -1,3 +1,14 @@
+# Flask
+
+## 代码
+
+```
+// __init__.py
+```
+
+```python
+// application.py
+
 from flask import Flask, jsonify, request
 from sqlalchemy import create_engine, text
 
@@ -19,3 +30,12 @@ def login():
 
 if __name__ == '__main__':
     app.run()
+
+
+```
+
+## 运行
+
+```
+gunicorn -w2 -b 0.0.0.0:8090 application:app
+```

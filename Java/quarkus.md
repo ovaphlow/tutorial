@@ -1,5 +1,13 @@
 # Quarkus 工程
 
+## 初始化
+
+Windows Powershell
+
+```powershell
+mvn io.quarkus.platform:quarkus-maven-plugin:2.5.1.Final:create "-DprojectGroupId=org.acme" "-DprojectArtifactId=getting-started" "-DclassName=org.acme.getting.started.GreetingResource" "-Dpath=/hello"
+```
+
 ## 添加数据库支持：reactive_pg_client
 
 ```shell

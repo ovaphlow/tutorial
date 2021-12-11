@@ -23,6 +23,35 @@ sudo apt-get update
 sudo apt-get -y install postgresql
 ```
 
+```shell
+# 验证安装
+sudo -u postgres psql -c "SELECT version();"
+```
+
+创建一个新的 PostgreSQL 角色
+
+```shell
+sudo su - postgres -c "createuser john"
+```
+
+创建一个新的 PostgreSQL 数据库
+
+```shell
+sudo su - postgres -c "createdb johndb"
+```
+
+连接到 PostgreSQL shell
+
+```shell
+sudo -u postgres psql
+```
+
+授权
+
+```sql
+grant all privileges on database johndb to john;
+```
+
 ## Manjaro
     pacman -S postgresql
 

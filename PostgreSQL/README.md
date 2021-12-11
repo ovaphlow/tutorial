@@ -52,6 +52,36 @@ sudo -u postgres psql
 grant all privileges on database johndb to john;
 ```
 
+编辑配置文件
+
+```shell
+sudo vim /etc/postgresql/14/main/postgresql.conf
+```
+
+增加行
+
+```
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+
+# - Connection Settings -
+
+listen_addresses = '*'     # what IP address(es) to listen on;
+```
+
+重启服务
+
+```shell
+sudo service postgresql restart
+```
+
+验证
+
+```shell
+ss -nlt | grep 5432
+```
+
 ## Manjaro
     pacman -S postgresql
 

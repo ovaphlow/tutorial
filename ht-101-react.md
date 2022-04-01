@@ -23,6 +23,8 @@
 1. [条件渲染](https://reactjs.org/docs/conditional-rendering.html)
 1. [渲染列表](https://reactjs.org/docs/lists-and-keys.html)
 1. [useEffect](https://reactjs.org/docs/hooks-effect.html)
-1. [fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch)
+1. [fetch](https://developer.mozilla.org/zh-CN/docs/Web/API/Fetch_API/Using_Fetch) / [Axios](https://axios-http.com/)
 1. [React Router](https://v5.reactrouter.com/web/guides/quick-start)
+
+
 1. [Tailwind](https://tailwindcss.com/docs/installation)

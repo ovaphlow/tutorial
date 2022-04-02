@@ -30,3 +30,4 @@
 1. [React Router](https://v5.reactrouter.com/web/guides/quick-start)
 1. [Tailwind](https://tailwindcss.com/docs/installation) / [Ant Design Pro](https://pro.ant.design/)
 1. Redux
+1. CSS in JS

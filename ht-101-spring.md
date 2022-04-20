@@ -15,7 +15,7 @@ Git
 1. 数据库
 1. MyBatis Mapper
 1. CRUD
-1. filter
+1. filter / interceptor
 
 ## 数据库
 

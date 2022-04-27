@@ -16,6 +16,7 @@ Git
 1. MyBatis Mapper
 1. CRUD
 1. filter / interceptor
+1. JVM优化
 
 ## 数据库
 
@@ -26,5 +27,7 @@ Git
 ## 缓存
 
 Redis
+
+## 服务器
 
 ## docker

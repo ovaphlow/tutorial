@@ -31,3 +31,9 @@
 1. [Tailwind](https://tailwindcss.com/docs/installation) / [Ant Design Pro](https://pro.ant.design/)
 1. Redux
 1. CSS in JS
+
+## 工具
+
+Nginx
+
+Git

@@ -29,5 +29,6 @@ Git
 Redis
 
 ## 服务器
+Nginx
 
 ## docker

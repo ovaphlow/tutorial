@@ -42,3 +42,23 @@ git pull --rebase
 git branch --delete <FEATURE_NAME>
 git push origin --delete <FEATURE_NAME>
 ```
+
+## 其它
+
+### 查看所有分支
+
+```shell
+git branch --all
+```
+
+### 将远程分支拉取到本地
+
+```shell
+git fetch origin REMOTE_BRANCH:LOCAL_BRANCH
+```
+
+### 本地分支设置关联到远程分支
+
+```shell
+git branch --set-upstream-to origin/REMOTE_BRANCH LOCAL_BRANCH
+```

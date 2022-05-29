@@ -1,5 +1,87 @@
 # 安装
 
+## Ubuntu Server
+
+```shell
+# Create the file repository configuration:
+sudo sh -c 'echo "deb http://apt.postgresql.org/pub/repos/apt $(lsb_release -cs)-pgdg main" > /etc/apt/sources.list.d/pgdg.list'
+```
+
+```shell
+# Import the repository signing key:
+wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | sudo apt-key add -
+```
+
+```shell
+# Update the package lists:
+sudo apt-get update
+```
+
+```shell
+# Install the latest version of PostgreSQL.
+# If you want a specific version, use 'postgresql-12' or similar instead of 'postgresql':
+sudo apt-get -y install postgresql
+```
+
+```shell
+# 验证安装
+sudo -u postgres psql -c "SELECT version();"
+```
+
+创建一个新的 PostgreSQL 角色
+
+```shell
+sudo su - postgres -c "createuser john"
+```
+
+创建一个新的 PostgreSQL 数据库
+
+```shell
+sudo su - postgres -c "createdb johndb"
+```
+
+连接到 PostgreSQL shell
+
+```shell
+sudo -u postgres psql
+```
+
+授权
+
+```sql
+grant all privileges on database johndb to john;
+```
+
+编辑配置文件
+
+```shell
+sudo vim /etc/postgresql/14/main/postgresql.conf
+```
+
+增加行
+
+```
+#------------------------------------------------------------------------------
+# CONNECTIONS AND AUTHENTICATION
+#------------------------------------------------------------------------------
+
+# - Connection Settings -
+
+listen_addresses = '*'     # what IP address(es) to listen on;
+```
+
+重启服务
+
+```shell
+sudo service postgresql restart
+```
+
+验证
+
+```shell
+ss -nlt | grep 5432
+```
+
 ## Manjaro
     pacman -S postgresql
 
